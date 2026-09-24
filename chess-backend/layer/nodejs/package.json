@@ -1,0 +1,12 @@
+{
+  "name": "chess-backend-layer",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.687.0",
+    "@aws-sdk/client-dynamodb": "^3.687.0",
+    "@aws-sdk/lib-dynamodb": "^3.687.0",
+    "chess.js": "^1.0.0",
+    "js-chess-engine": "^2.4.6"
+  }
+}

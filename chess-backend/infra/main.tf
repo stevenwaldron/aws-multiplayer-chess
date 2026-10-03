@@ -12,13 +12,13 @@ terraform {
     }
   }
 
-  # backend "s3" {
-  #   bucket         = "chess-tfstate-725198489521"
-  #   key            = "chess/terraform.tfstate"
-  #   region         = "us-east-1"
-  #   dynamodb_table = "chess-tfstate-lock"
-  #   encrypt        = true
-  # }
+  backend "s3" {
+    bucket         = "chess-tfstate-725198489521"
+    key            = "chess/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "chess-tfstate-lock"
+    encrypt        = true
+  }
 }
 
 provider "aws" {

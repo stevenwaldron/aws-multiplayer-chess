@@ -16,15 +16,9 @@ resource "null_resource" "build_layer" {
   provisioner "local-exec" {
     command = <<-EOT
       cd ${path.module}/../layer/nodejs
-      echo "=== pwd ==="
-      pwd
       npm install --production --no-audit --no-fund
-      echo "=== node_modules after npm install ==="
-      ls -la node_modules/ || echo "NO node_modules DIR"
       mkdir -p node_modules/shared
       cp ../../shared-src/*.js ../../shared-src/package.json node_modules/shared/
-      echo "=== node_modules/shared after cp ==="
-      ls -la node_modules/shared/ || echo "NO shared DIR"
     EOT
   }
 }

@@ -5,11 +5,11 @@
 # traffic on connect/disconnect/game-setup.
 
 resource "aws_dynamodb_table" "games" {
-  name         = "${var.project_name}-games"
-  billing_mode = "PROVISIONED"
+  name           = "${var.project_name}-games"
+  billing_mode   = "PROVISIONED"
   read_capacity  = 15
   write_capacity = 15
-  hash_key     = "game_id"
+  hash_key       = "game_id"
 
   attribute {
     name = "game_id"
@@ -31,11 +31,11 @@ resource "aws_dynamodb_table" "games" {
 }
 
 resource "aws_dynamodb_table" "connections" {
-  name         = "${var.project_name}-connections"
-  billing_mode = "PROVISIONED"
+  name           = "${var.project_name}-connections"
+  billing_mode   = "PROVISIONED"
   read_capacity  = 10
   write_capacity = 10
-  hash_key     = "connection_id"
+  hash_key       = "connection_id"
 
   attribute {
     name = "connection_id"

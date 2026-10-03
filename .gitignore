@@ -1,9 +1,8 @@
 node_modules/
 dist/
 .env.local
-chess-backend/infra/build/
-chess-backend/infra/.terraform/
-chess-backend/infra/terraform.tfstate
-chess-backend/infra/terraform.tfstate.backup
-chess-backend/infra/*.zip
+**/build/
+**/.terraform/
+**/terraform.tfstate*
+*.zip
 .DS_Store

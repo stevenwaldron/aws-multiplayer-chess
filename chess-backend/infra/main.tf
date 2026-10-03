@@ -12,14 +12,11 @@ terraform {
     }
   }
 
-  # Uncomment once you've created the state bucket + lock table (see
-  # docs/terraform-state.md for the one-time bootstrap commands):
-  #
   # backend "s3" {
-  #   bucket         = "your-chess-tfstate-bucket"
+  #   bucket         = "chess-tfstate-725198489521"
   #   key            = "chess/terraform.tfstate"
   #   region         = "us-east-1"
-  #   dynamodb_table = "terraform-locks"
+  #   dynamodb_table = "chess-tfstate-lock"
   #   encrypt        = true
   # }
 }

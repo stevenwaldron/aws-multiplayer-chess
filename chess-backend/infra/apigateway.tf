@@ -1,6 +1,6 @@
 resource "aws_apigatewayv2_api" "chess_ws" {
-  name                       = "${var.project_name}-ws-api"
-  protocol_type              = "WEBSOCKET"
+  name          = "${var.project_name}-ws-api"
+  protocol_type = "WEBSOCKET"
   # API Gateway picks a route by reading this field out of the message body,
   # so every client message needs an "action" field — this is what makes
   # {"action": "move", ...} land on the "move" route.

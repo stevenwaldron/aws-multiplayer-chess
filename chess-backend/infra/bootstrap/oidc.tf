@@ -24,7 +24,16 @@ resource "aws_iam_role" "github_actions" {
           "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
           # Immutable ID-based subject claim (see variables.tf for why the
           # classic owner/repo-name format won't work for this repo).
-          "token.actions.githubusercontent.com:sub" = "repo:${var.github_owner}@${var.github_owner_id}/${var.github_repo}@${var.github_repo_id}:ref:refs/heads/main"
+          # Two valid shapes for this one role: jobs with no "environment:"
+          # (validate, plan) get a ref-based subject; the deploy job, which
+          # sets environment: production, gets an environment-based subject
+          # instead — GitHub's default behavior once a job references an
+          # environment. Both have to be allowed since all three jobs share
+          # this one role.
+          "token.actions.githubusercontent.com:sub" = [
+            "repo:${var.github_owner}@${var.github_owner_id}/${var.github_repo}@${var.github_repo_id}:ref:refs/heads/main",
+            "repo:${var.github_owner}@${var.github_owner_id}/${var.github_repo}@${var.github_repo_id}:environment:production",
+          ]
         }
       }
     }]
